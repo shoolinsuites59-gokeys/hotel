@@ -1,0 +1,5 @@
+{
+  "name": "Shoolin Suites Hotel Haridwar",
+  "description": "Elegant 3-star standard hotel in Haridwar offering deluxe rooms, multi-cuisine dining, and spiritual proximity to the Ganges.",
+  "requestFramePermissions": ["geolocation"]
+}
