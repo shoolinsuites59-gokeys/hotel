@@ -81,7 +81,7 @@ export default function Home() {
                 EXPLORE ROOMS
               </Link>
               <a
-                href="https://wa.me/910000000000"
+                href="https://wa.me/919927511751"
                 className="w-full sm:w-auto bg-white/10 hover:bg-white/20 backdrop-blur-md text-white border border-white/30 px-10 py-4 rounded-full font-bold transition-all flex items-center justify-center gap-2"
               >
                 <MessageCircle size={20} />
@@ -294,13 +294,13 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <a
-              href="tel:+910000000000"
+              href="tel:+919927511751"
               className="w-full sm:w-auto bg-white text-ink px-10 py-4 rounded-full font-bold hover:bg-gold hover:text-white transition-all"
             >
               CALL US NOW
             </a>
             <a
-              href="https://wa.me/910000000000"
+              href="https://wa.me/919927511751"
               className="w-full sm:w-auto bg-gold text-white px-10 py-4 rounded-full font-bold hover:bg-saffron transition-all shadow-xl shadow-gold/20"
             >
               WHATSAPP BOOKING

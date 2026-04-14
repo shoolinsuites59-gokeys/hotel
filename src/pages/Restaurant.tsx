@@ -8,7 +8,7 @@ const menuCategories = [
     items: [
       { name: 'Puri Bhaji', price: '₹149', desc: 'Traditional Haridwar style puri with spicy potato curry.' },
       { name: 'Stuffed Paratha', price: '₹129', desc: 'Choice of Aloo, Paneer or Gobi served with curd and pickle.' },
-      { name: 'Masala Omelette', price: '₹119', desc: 'Fluffy eggs with onions, chilies and Indian spices.' },
+      { name: 'Cholle Bhature', price: '₹149', desc: 'Best North India Breakfast, Served with Cholle.' },
     ]
   },
   {

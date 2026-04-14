@@ -39,7 +39,7 @@ export default function Footer() {
             <li><Link to="/rooms" className="hover:text-gold transition-colors">Rooms & Suites</Link></li>
             <li><Link to="/restaurant" className="hover:text-gold transition-colors">Dining</Link></li>
             <li><Link to="/contact" className="hover:text-gold transition-colors">Contact Us</Link></li>
-            <li><a href="#" className="hover:text-gold transition-colors">Privacy Policy</a></li>
+            
           </ul>
         </div>
 
@@ -53,7 +53,7 @@ export default function Footer() {
             </li>
             <li className="flex items-center space-x-3">
               <Phone size={18} className="text-gold shrink-0" />
-              <span>+91 99275 11751</span>
+              <span>+91 99275 11751, 90127 19659</span>
             </li>
             <li className="flex items-center space-x-3">
               <Mail size={18} className="text-gold shrink-0" />

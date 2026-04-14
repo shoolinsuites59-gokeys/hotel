@@ -8,7 +8,7 @@ const roomCategories = [
     name: 'Deluxe Room',
     price: '₹2,499',
     desc: 'Our Deluxe Rooms offer a perfect blend of comfort and elegance, ideal for solo travelers or couples.',
-    image: 'https://images.unsplash.com/photo-1611892440504-42a792e24d32?auto=format&fit=crop&q=80&w=1200',
+    image: '/images/rooms.jpeg',
     amenities: ['King Size Bed', 'Air Conditioning', 'High-speed WiFi', '32" LED TV', 'Tea/Coffee Maker', 'Modern Bathroom'],
     features: [
       { icon: <Wifi size={20} />, label: 'Free WiFi' },
@@ -22,13 +22,13 @@ const roomCategories = [
     name: 'Super Deluxe Room',
     price: '₹3,499',
     desc: 'Experience premium luxury in our Super Deluxe Rooms, featuring spacious interiors and enhanced amenities.',
-    image: 'https://images.unsplash.com/photo-1590490360182-c33d57733427?auto=format&fit=crop&q=80&w=1200',
-    amenities: ['Premium King Bed', 'Centralized AC', 'High-speed WiFi', '43" Smart TV', 'Mini Bar', 'Bath Tub', '24/7 Room Service'],
+    image: '/images/room-with-sofa.jpeg',
+    amenities: ['Premium King Bed', 'AC', 'High-speed WiFi', '43" Smart TV', 'Tea/Coffee Maker', '24/7 Room Service'],
     features: [
       { icon: <Wifi size={20} />, label: 'Free WiFi' },
       { icon: <Wind size={20} />, label: 'Central AC' },
       { icon: <Tv size={20} />, label: 'Smart TV' },
-      { icon: <Bath size={20} />, label: 'Bath Tub' },
+      
     ]
   },
 ];
@@ -136,7 +136,7 @@ export default function Rooms() {
 
                 <div className="pt-8">
                   <a
-                    href={`https://wa.me/910000000000?text=I'm interested in booking a ${room.name}`}
+                    href={`https://wa.me/919927511751?text=I'm interested in booking a ${room.name}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 bg-gold hover:bg-saffron text-white px-10 py-4 rounded-full font-bold transition-all shadow-xl shadow-gold/20"

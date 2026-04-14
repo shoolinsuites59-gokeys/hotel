@@ -1,8 +1,16 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import { Phone, Mail, MapPin, MessageCircle, Send, Clock } from 'lucide-react';
 
 export default function Contact() {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    phone: '',
+    email: '',
+    subject: 'Room Booking Enquiry',
+    message: '',
+  });
 
   useEffect(() => {
     document.title = "Contact Us | Shoolin Suites Hotel Haridwar";
@@ -16,14 +24,39 @@ export default function Contact() {
     }
   }, []);
 
-  const handleSubmit = (e) => {
+  // ✅ UPDATED HANDLE SUBMIT (WHATSAPP)
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    alert('Thank you for your enquiry! We will get back to you shortly.');
+
+    const { name, phone, email, subject, message } = formData;
+
+    const whatsappMessage = `New Enquiry from Website:
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Subject: ${subject}
+Message: ${message}`;
+
+    const encodedMessage = encodeURIComponent(whatsappMessage);
+    const whatsappNumber = "919927511751";
+
+    const url = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+    window.open(url, "_blank");
+
+    // clear form
+    setFormData({
+      name: '',
+      phone: '',
+      email: '',
+      subject: 'Room Booking Enquiry',
+      message: '',
+    });
   };
 
   return (
     <>
-
       {/* Hero */}
       <section className="relative h-[50vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
@@ -52,6 +85,7 @@ export default function Contact() {
       {/* Contact Info & Form */}
       <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20">
+          
           {/* Contact Info */}
           <div className="space-y-12">
             <div className="space-y-6">
@@ -64,147 +98,104 @@ export default function Contact() {
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+              
               <div className="p-8 bg-beige rounded-3xl space-y-4">
-                <div className="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold">
-                  <Phone size={24} />
-                </div>
-                <h4 className="font-bold text-ink">Call Us</h4>
-                <p className="text-sm text-ink/60">+91 00000 00000</p>
-                <a href="tel:+910000000000" className="text-xs font-bold text-gold hover:underline">CALL NOW</a>
+                <Phone size={24} />
+                <h4>Call Us</h4>
+                <p>+91 99275 11751</p>
+                <a href="tel:+919927511751">CALL NOW</a>
               </div>
 
               <div className="p-8 bg-beige rounded-3xl space-y-4">
-                <div className="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold">
-                  <MessageCircle size={24} />
-                </div>
-                <h4 className="font-bold text-ink">WhatsApp</h4>
-                <p className="text-sm text-ink/60">+91 00000 00000</p>
-                <a href="https://wa.me/910000000000" className="text-xs font-bold text-gold hover:underline">CHAT NOW</a>
+                <MessageCircle size={24} />
+                <h4>WhatsApp</h4>
+                <p>+91 99275 11751</p>
+                <a href="https://wa.me/919927511751">CHAT NOW</a>
               </div>
 
               <div className="p-8 bg-beige rounded-3xl space-y-4">
-                <div className="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold">
-                  <Mail size={24} />
-                </div>
-                <h4 className="font-bold text-ink">Email Us</h4>
-                <p className="text-sm text-ink/60">shoolinsuites59@gmail.com</p>
-                <a href="mailto:shoolinsuites59@gmail.com" className="text-xs font-bold text-gold hover:underline">SEND EMAIL</a>
+                <Mail size={24} />
+                <h4>Email Us</h4>
+                <p>shoolinsuites59@gmail.com</p>
               </div>
 
               <div className="p-8 bg-beige rounded-3xl space-y-4">
-                <div className="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold">
-                  <Clock size={24} />
-                </div>
-                <h4 className="font-bold text-ink">Reception</h4>
-                <p className="text-sm text-ink/60">Available 24/7</p>
-                <div className="text-xs font-bold text-gold">ALWAYS OPEN</div>
+                <Clock size={24} />
+                <h4>Reception</h4>
+                <p>Available 24/7</p>
               </div>
+
             </div>
 
-            <div className="p-8 border-2 border-beige rounded-3xl flex items-start gap-6">
-              <div className="w-12 h-12 bg-gold/10 rounded-2xl flex items-center justify-center text-gold shrink-0">
-                <MapPin size={24} />
-              </div>
+            <div className="p-8 border-2 border-beige rounded-3xl flex gap-6">
+              <MapPin size={24} />
               <div>
-                <h4 className="font-bold text-ink mb-2">Our Location</h4>
-                <p className="text-sm text-ink/60 leading-relaxed">
-                  Near Bhupatwala, Dudadhari Chowk, Haridwar, Uttarakhand, India
-                </p>
+                <h4>Our Location</h4>
+                <p>Near Bhupatwala, Dudadhari Chowk, Haridwar</p>
               </div>
             </div>
           </div>
 
-          {/* Contact Form */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="bg-white p-10 rounded-3xl shadow-2xl border border-beige"
-          >
-            <h3 className="text-3xl font-serif font-bold mb-8">Send an Enquiry</h3>
+          {/* FORM */}
+          <motion.div className="bg-white p-10 rounded-3xl shadow-2xl">
+            <h3 className="text-3xl font-bold mb-8">Send an Enquiry</h3>
+
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-ink/40">Full Name</label>
-                  <input
-                    required
-                    type="text"
-                    placeholder="John Doe"
-                    className="w-full bg-beige border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-gold outline-none transition-all"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-xs font-bold uppercase tracking-widest text-ink/40">Phone Number</label>
-                  <input
-                    required
-                    type="tel"
-                    placeholder="+91 00000 00000"
-                    className="w-full bg-beige border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-gold outline-none transition-all"
-                  />
-                </div>
-              </div>
 
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-ink/40">Email Address</label>
-                <input
-                  required
-                  type="email"
-                  placeholder="john@example.com"
-                  className="w-full bg-beige border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-gold outline-none transition-all"
-                />
-              </div>
+              <input
+                required
+                type="text"
+                placeholder="Full Name"
+                value={formData.name}
+                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                className="w-full p-3 bg-beige"
+              />
 
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-ink/40">Subject</label>
-                <select className="w-full bg-beige border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-gold outline-none transition-all">
-                  <option>Room Booking Enquiry</option>
-                  <option>Restaurant Reservation</option>
-                  <option>Travel Assistance</option>
-                  <option>Other Enquiry</option>
-                </select>
-              </div>
+              <input
+                required
+                type="tel"
+                placeholder="Phone"
+                value={formData.phone}
+                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                className="w-full p-3 bg-beige"
+              />
 
-              <div className="space-y-2">
-                <label className="text-xs font-bold uppercase tracking-widest text-ink/40">Your Message</label>
-                <textarea
-                  required
-                  rows={4}
-                  placeholder="Tell us about your requirements..."
-                  className="w-full bg-beige border-none rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-gold outline-none transition-all resize-none"
-                ></textarea>
-              </div>
+              <input
+                required
+                type="email"
+                placeholder="Email"
+                value={formData.email}
+                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                className="w-full p-3 bg-beige"
+              />
 
-              <button
-                type="submit"
-                className="w-full bg-gold hover:bg-saffron text-white py-4 rounded-xl font-bold transition-all shadow-xl shadow-gold/20 flex items-center justify-center gap-2"
+              <select
+                value={formData.subject}
+                onChange={(e) => setFormData({ ...formData, subject: e.target.value })}
+                className="w-full p-3 bg-beige"
               >
+                <option>Room Booking Enquiry</option>
+                <option>Restaurant Reservation</option>
+              </select>
+
+              <textarea
+                required
+                rows={4}
+                placeholder="Message"
+                value={formData.message}
+                onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                className="w-full p-3 bg-beige"
+              />
+
+              <button type="submit" className="w-full bg-gold text-white py-3 flex justify-center gap-2">
                 <Send size={18} />
-                SEND MESSAGE
+                SEND ON WHATSAPP
               </button>
+
             </form>
           </motion.div>
-        </div>
-      </section>
 
-      {/* Map Section */}
-      <section className="h-[60vh] bg-beige relative">
-        {/* Placeholder for Google Maps Iframe */}
-        <div className="absolute inset-0 bg-beige flex items-center justify-center">
-          <div className="text-center space-y-4">
-            <MapPin size={48} className="text-gold mx-auto" />
-            <p className="text-ink/40 font-bold uppercase tracking-widest">Google Maps Location</p>
-            <p className="text-xs text-ink/20 max-w-xs mx-auto italic">
-              (In a real deployment, the Google Maps iframe would be embedded here)
-            </p>
-          </div>
         </div>
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12563.86210190703!2d78.16342568715818!3d29.980520100000014!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3909470056f186e9%3A0x409c3448f34d512c!2sShoolin%20Suites%20(%20Stellar%20Hospitality)!5e1!3m2!1sen!2sin!4v1772456123702!5m2!1sen!2sin"
-          className="w-full h-full border-none grayscale hover:grayscale-0 transition-all duration-700 relative z-10 opacity-80 hover:opacity-100"
-          allowFullScreen
-          loading="lazy"
-          referrerPolicy="no-referrer-when-downgrade"
-        ></iframe>
       </section>
     </>
   );

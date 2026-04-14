@@ -3,10 +3,10 @@ import { Target, Eye, CheckCircle2, MapPin } from 'lucide-react';
 import { useEffect } from 'react';
 
 const attractions = [
-  { name: 'Har Ki Pauri', dist: '2.5 km', image: 'https://images.unsplash.com/photo-1544085311-11a028465b03?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Mansa Devi Temple', dist: '3.0 km', image: 'https://images.unsplash.com/photo-1561361513-2d000a50f0dc?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Chandi Devi Temple', dist: '4.5 km', image: 'https://images.unsplash.com/photo-1590050752117-23a9d7fc6f9d?auto=format&fit=crop&q=80&w=600' },
-  { name: 'Ganga Ghat', dist: '1.0 km', image: 'https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=600' },
+  { name: 'Har Ki Pauri', dist: '2.5 km', image: 'https://images.unsplash.com/photo-1653392083932-d5e9e7d2ccd1?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D' },
+  { name: 'Mansa Devi Temple', dist: '3.0 km', image: '/images/mansa-devi.jpg' },
+  { name: 'Chandi Devi Temple', dist: '4.5 km', image: '/images/chandi-devi.jpg' },
+  { name: 'Ganga Ghat', dist: '1.0 km', image: '/images/Subhash-Ghat-Haridwar.jpg' },
 ];
 
 export default function About() {
@@ -28,8 +28,8 @@ export default function About() {
       <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&q=80&w=1920"
-            alt="About Header"
+            src="/images/front.jpeg"
+            alt="hotels-front"
             className="w-full h-full object-cover"
             referrerPolicy="no-referrer"
           />
@@ -65,7 +65,7 @@ export default function About() {
               </p>
               <div className="grid grid-cols-2 gap-8 pt-6">
                 <div>
-                  <div className="text-4xl font-serif font-bold text-gold mb-2">10+</div>
+                  <div className="text-4xl font-serif font-bold text-gold mb-2">3+</div>
                   <div className="text-xs uppercase tracking-widest font-bold text-ink/40">Years of Service</div>
                 </div>
                 <div>
@@ -76,7 +76,7 @@ export default function About() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1582719478250-c89cae4df85b?auto=format&fit=crop&q=80&w=800"
+                src="/images/room-with-sofa.jpeg"
                 alt="Hotel Interior"
                 className="rounded-3xl shadow-2xl"
                 referrerPolicy="no-referrer"

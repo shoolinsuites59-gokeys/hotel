@@ -66,7 +66,7 @@ export default function Navbar() {
             </Link>
           ))}
           <a
-            href="https://wa.me/910000000000"
+            href="https://wa.me/919927511751"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-gold hover:bg-saffron text-white px-6 py-2 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-gold/20"
@@ -108,14 +108,14 @@ export default function Navbar() {
               ))}
               <div className="flex flex-col space-y-3 pt-4">
                 <a
-                  href="tel:+910000000000"
+                  href="tel:+919927511751"
                   className="flex items-center justify-center space-x-2 bg-beige text-ink py-3 rounded-xl font-medium"
                 >
                   <Phone size={18} />
                   <span>Call Us</span>
                 </a>
                 <a
-                  href="https://wa.me/910000000000"
+                  href="https://wa.me/919927511751"
                   className="flex items-center justify-center space-x-2 bg-gold text-white py-3 rounded-xl font-medium"
                 >
                   <MessageCircle size={18} />
